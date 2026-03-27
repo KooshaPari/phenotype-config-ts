@@ -1,0 +1,29 @@
+version: '3'
+tasks:
+  install:
+    desc: Install dependencies
+    cmds:
+      - bun install
+  build:
+    desc: Build the project
+    cmds:
+      - bun run build
+  test:
+    desc: Run tests
+    cmds:
+      - bun run test
+  lint:
+    desc: Run linter
+    cmds:
+      - bun run lint
+  fmt:
+    desc: Format code
+    cmds:
+      - bun run format || bunx prettier --write .
+  quality:
+    desc: Run all quality checks
+    deps: [lint, test]
+  docs:build:
+    desc: Build VitePress docs
+    cmds:
+      - bun run docs:build
