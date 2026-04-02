@@ -1,6 +1,10 @@
 /**
  * phenotype-config-ts
  *
+ * @trace CONF-001: Multi-Source Config
+ * @trace CONF-002: Validation
+ * @trace CONF-004: Secrets Integration
+ *
  * TypeScript configuration management with Zod validation.
  *
  * xDD Methodologies:
