@@ -1,6 +1,6 @@
 /**
- * phenotype-config-ts
- *
+/**
+ * Multi-source configuration for Phenotype.
  * @trace CONF-001: Multi-Source Config
  * @trace CONF-002: Validation
  * @trace CONF-004: Secrets Integration
@@ -13,7 +13,6 @@
  * - DDD: Domain-driven with bounded context
  * - CDD: Contract-driven with port/adapter verification
  */
-
 export * from './domain/config';
 export * from './ports/config-source';
 export * from './adapters/env-adapter';
