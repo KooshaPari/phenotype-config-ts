@@ -1,35 +1,35 @@
 [tasks.format]
 description = "Format code"
 
-run = "npx prettier --write ."
+run = "cargo fmt"
 
 
 [tasks.lint]
 description = "Lint code"
 
-run = "eslint ."
+run = "cargo clippy -- -D warnings"
 
 
 [tasks.test]
 description = "Run tests"
 
-run = "npm test"
+run = "cargo test"
 
 
 [tasks.build]
 description = "Build project"
 
-run = "npm run build"
+run = "cargo build --release"
 
 
 [tasks.audit]
 description = "Audit dependencies"
 
-run = "npm audit"
+run = "cargo audit"
 
 
 [tasks.docs:build]
 description = "Build documentation"
 
-run = "typedoc --out docs"
+run = "cargo doc --no-deps --open"
 
