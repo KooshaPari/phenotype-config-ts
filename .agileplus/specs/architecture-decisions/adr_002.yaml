@@ -1,0 +1,14 @@
+adr_id: adr_002
+title: "Architecture Decision 002"
+status: "accepted"
+date: "2026-04-03"
+author: "Phenotype Team"
+context: |
+  Context for the second architecture decision.
+decision: |
+  The second decision made.
+consequences:
+  positive:
+    - "Benefit 1"
+related_frs:
+  - "fr_002"

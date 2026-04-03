@@ -1,0 +1,16 @@
+adr_id: adr_003
+title: "Architecture Decision 003"
+status: "proposed"
+date: "2026-04-03"
+author: "Phenotype Team"
+context: |
+  Context for the proposed architecture decision.
+decision: |
+  [PROPOSED] Future decision.
+consequences:
+  positive:
+    - "Future benefit"
+  negative:
+    - "Potential trade-off"
+related_frs:
+  - "fr_003"

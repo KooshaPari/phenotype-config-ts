@@ -1,0 +1,17 @@
+adr_id: adr_001
+title: "Architecture Decision 001"
+status: "accepted"
+date: "2026-04-03"
+author: "Phenotype Team"
+context: |
+  Context for the architecture decision in phenotype-config-ts.
+decision: |
+  The decision made for phenotype-config-ts.
+consequences:
+  positive:
+    - "Benefit 1"
+    - "Benefit 2"
+  negative:
+    - "Trade-off 1"
+related_frs:
+  - "fr_001"
