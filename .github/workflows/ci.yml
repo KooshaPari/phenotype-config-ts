@@ -2,45 +2,32 @@ name: CI
 
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   pull_request:
-    branches: [main, master]
+    branches: [main]
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-permissions:
-  contents: read
-
 jobs:
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: ['18', '20', '22']
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-      - uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run build
-      - run: npm test
+  ci:
+    name: TypeScript CI
+    uses: KooshaPari/template-commons/.github/workflows/reusable-typescript-ci.yml@main
+    with:
+      node-version: "20"
+      package-manager: npm
 
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - run: npm ci
-      - run: npm run build
+  security:
+    name: Security Audit
+    uses: KooshaPari/template-commons/.github/workflows/reusable-security-scan.yml@main
+    with:
+      language: typescript
+    secrets:
+      SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+
+  phenotype-validate:
+    name: Governance Validation
+    uses: KooshaPari/phenotypeActions/.github/workflows/validate-governance.yml@main
+
